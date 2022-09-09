@@ -43,3 +43,7 @@ npm-debug.log*
 /wp-content/plugins/akismet
 /readme.html
 /license.txt
+win_install.sh
+win_install_demo_data.sh
+mac_install.sh
+mac_install_demo_data.sh
