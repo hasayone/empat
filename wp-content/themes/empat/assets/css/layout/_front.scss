@@ -1,0 +1,6 @@
+.front-page {
+	/* Importing the scss files into the front-page.scss file. */
+	@import "sections/hero";
+	@import "sections/skills";
+	@import "sections/portfolio";
+}

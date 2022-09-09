@@ -1,0 +1,111 @@
+body.page-template-about {
+	main {
+		background-color: #fafafc;
+		.about-page {
+			padding: 75px 0;
+			#about {
+				.about {
+					img {
+						margin-bottom: 30px;
+					}
+					h4 {
+						font-weight: 600;
+						margin-bottom: 20px;
+					}
+					h5 {
+						font-weight: 200;
+						margin-bottom: 30px;
+					}
+					&-content {
+						font-weight: 300;
+						font-size: 20px;
+						line-height: 28px;
+						margin-bottom: 15px;
+					}
+					&-footer {
+						font-weight: 300;
+						font-size: 20px;
+						line-height: 28px;
+						color: $text-color;
+						margin-bottom: 75px;
+						@include media-breakpoint-up(md) {
+							display: flex;
+							flex-wrap: wrap;
+							justify-content: space-between;
+							margin-bottom: 20px;
+						}
+						a {
+							position: relative;
+							margin-bottom: 10px;
+							@include media-breakpoint-down(sm) {
+								width: 100%;
+								justify-content: center;
+							}
+						}
+					}
+				}
+				.block {
+					background-color: $white;
+					padding: 40px;
+					margin-bottom: 30px;
+					border-radius: 8px;
+					h4 {
+						display: flex;
+						justify-content: space-between;
+						align-items: flex-start;
+						margin-bottom: 20px;
+						text-transform: uppercase;
+						font-weight: 300;
+						span {
+							font-size: 18px;
+							font-weight: 400;
+							line-height: 20px;
+							color: $accent-color;
+							text-align: right;
+							width: 95px;
+						}
+					}
+					p {
+						margin-bottom: 0;
+						color: $dark;
+					}
+					.block-footer {
+					}
+				}
+				.experience {
+					@include media-breakpoint-down(md) {
+						margin-bottom: 20px;
+					}
+					h3 {
+						margin-bottom: 30px;
+					}
+				}
+				#skills {
+					h3 {
+						margin-bottom: 80px;
+						@include media-breakpoint-down(md) {
+							margin-bottom: 30px;
+						}
+					}
+					.tag {
+						background-color: $color-4;
+						color: $dark;
+						display: inline-block;
+						font-size: 12px;
+						margin-bottom: 5px;
+						margin-right: 2px;
+						border-radius: 4px;
+						padding: 4px 5px;
+					}
+					ul {
+						padding-left: 20px;
+						margin: 0;
+						li {
+							font-weight: 200;
+						}
+					}
+				}
+			}
+		}
+	}
+}

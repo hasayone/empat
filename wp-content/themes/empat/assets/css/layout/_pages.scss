@@ -1,0 +1,43 @@
+// Contact Me
+h2.contact-social-links {
+	margin-top: 185px;
+	margin-bottom: 30px;
+	letter-spacing: 2px;
+	font-size: 48px;
+	line-height: 120%;
+	color: $text-color;
+	font-weight: 100;
+	width: 100%;
+	opacity: 0.8;
+	@include media-breakpoint-down(md) {
+		margin-top: 60px;
+		font-weight: 300;
+		font-size: 32px;
+	}
+}
+div.contact-social-links {
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	margin-bottom: 85px;
+	@include media-breakpoint-down(md) {
+		margin-bottom: 60px;
+	}
+	a {
+		margin: 15px;
+		svg {
+			width: 75px;
+			@include media-breakpoint-down(md) {
+				width: 40px;
+			}
+			height: auto;
+		}
+		&:hover {
+			svg {
+				path {
+					fill: $primary-color;
+				}
+			}
+		}
+	}
+}

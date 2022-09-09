@@ -1,0 +1,73 @@
+section.block-skills {
+	padding: 50px 0;
+	position: relative;
+	background-color: $dark;
+	.items {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		align-items: center;
+
+		@include media-breakpoint-down(sm) {
+			.btn {
+				width: 100%;
+				display: flex;
+				margin-top: 30px;
+				justify-content: center;
+			}
+		}
+		.item {
+			&.wp:not(:hover) {
+				svg {
+					path {
+						fill: $text-color;
+					}
+				}
+			}
+			&.php:not(:hover) {
+				svg {
+					path {
+						fill: $text-color;
+					}
+				}
+			}
+			&.react:not(:hover) {
+				svg {
+					g {
+						stroke: $text-color;
+					}
+					circle {
+						fill: $text-color;
+					}
+				}
+			}
+			&.js:not(:hover) {
+				svg {
+					path {
+						fill: $text-color;
+					}
+				}
+			}
+			&.php,
+			&.wp {
+				svg {
+					path {
+						fill: $white;
+					}
+				}
+			}
+
+			&:not(.btn) {
+				max-width: 15%;
+				@include media-breakpoint-down(sm) {
+					display: flex;
+					justify-content: center;
+					max-width: 25%;
+				}
+			}
+			svg {
+				width: 50%;
+			}
+		}
+	}
+}

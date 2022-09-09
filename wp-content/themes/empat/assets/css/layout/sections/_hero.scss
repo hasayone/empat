@@ -1,0 +1,132 @@
+section.hero-block {
+	padding: 85px 0 0;
+	@include media-breakpoint-down(sm) {
+		padding: 85px 0;
+	}
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+		background-color: $primary-color;
+		@include media-breakpoint-down(sm) {
+			display: none;
+		}
+	}
+
+	.hero-left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		h1 {
+			font-family: $font;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 4.2vw;
+			line-height: 4.2vw;
+			color: $accent-color;
+			text-transform: uppercase;
+			letter-spacing: 0.2px;
+			margin-bottom: 65px;
+			@include media-breakpoint-down(sm) {
+				text-align: center;
+				margin-top: 45px;
+			}
+
+			.name {
+				display: flex;
+				width: 100%;
+				margin-bottom: -10px;
+				@include media-breakpoint-up(xl) {
+					font-size: 4.2rem;
+					line-height: 100%;
+				}
+				@include media-breakpoint-down(sm) {
+					font-size: 30px;
+					line-height: 100%;
+					margin-bottom: 0;
+					justify-content: center;
+				}
+			}
+			.lastname {
+				position: relative;
+				font-weight: 600;
+				display: inline-flex;
+				color: $dark;
+				text-transform: uppercase;
+				font-size: 7vw;
+				line-height: 7vw;
+				margin-left: -3px;
+				@include media-breakpoint-up(xl) {
+					font-size: 6rem;
+					line-height: 100%;
+				}
+				@include media-breakpoint-down(sm) {
+					font-size: 60px;
+					line-height: 100%;
+				}
+				svg {
+					position: absolute;
+					top: -30px;
+					right: -4px;
+					width: 2.6vw;
+					height: auto;
+					@include media-breakpoint-up(xl) {
+						width: 2rem;
+						top: -20px;
+					}
+
+					@include media-breakpoint-down(sm) {
+						width: 20px;
+						top: -20px;
+					}
+					path {
+						fill: $dark;
+					}
+				}
+			}
+		}
+
+		.about {
+			@include media-breakpoint-up(lg) {
+				max-width: 415px;
+			}
+			&-subtitle {
+				margin-bottom: 15px;
+			}
+			&-title {
+				margin-bottom: 15px;
+				font-size: 24px;
+			}
+		}
+	}
+	.hero-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img {
+			max-width: 80%;
+			margin-left: -145px;
+			border-top: 20px solid #fff;
+			border-right: 20px solid #fff;
+			border-radius: 0 4px 0 0;
+
+			@media (min-width: 1440px) {
+				margin-left: -165px;
+			}
+			@media (min-width: 990px) and (max-width: 1119px) {
+				margin-left: -123px;
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			img {
+				display: none;
+			}
+		}
+	}
+}

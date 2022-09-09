@@ -1,0 +1,107 @@
+/*******************************************************************
+	Helper classes
+*******************************************************************/
+
+.text-small {
+}
+
+.text-smallest {
+}
+
+.text-center {
+	text-align: center;
+}
+
+// Colors
+
+.color-1 {
+	color: $color-1;
+}
+.color-2 {
+	color: $color-2;
+}
+.color-3 {
+	color: $color-3;
+}
+.color-4 {
+	color: $color-4;
+}
+.primary-color {
+	color: $primary-color;
+}
+.accent-color {
+	color: $accent-color;
+}
+.text-color {
+	color: $text-color;
+}
+
+.btn a,
+a.btn {
+	display: inline-flex;
+	font-size: 18px;
+	line-height: 20px;
+	color: $white;
+	background-color: $primary-color;
+	padding: 16px 38px;
+	margin: 0;
+	&:hover {
+		color: $white;
+		background-color: $black;
+	}
+}
+.btn-dark a,
+a.btn-dark {
+	display: inline-flex;
+	font-size: 18px;
+	line-height: 20px;
+	color: $white;
+	background-color: $black;
+	padding: 15px 37px;
+	border: 1px solid $black;
+	margin: 0;
+	&:hover {
+		color: $black;
+		background-color: transparent;
+	}
+}
+
+.d-none {
+	display: none !important;
+}
+
+.slick-list {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.slick-dots {
+	list-style: none;
+	margin: 18px 0 0 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	li {
+		display: block;
+		margin: 0 7px;
+		padding: 0;
+		&.slick-active button {
+			background: $primary-color;
+			border: 1px solid transparent;
+		}
+	}
+	button {
+		display: block;
+		margin: 0;
+		padding: 0;
+		text-indent: -5555em;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		border: 1px solid $dark;
+		min-height: 1px;
+	}
+}

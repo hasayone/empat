@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------
+## Lib & Custom Grid
+--------------------------------------------------------------*/
+
+@import "lib/reboot.min.css";
+@import "grid/grid";
+
+/*--------------------------------------------------------------
+## Plugins
+--------------------------------------------------------------*/
+@import "lib/lity/lity.min.css";
+@import "../../../../../node_modules/slick-carousel/slick/slick.scss";
+
+/*--------------------------------------------------------------
+## Variations
+--------------------------------------------------------------*/
+@import "vars";
+
+/*--------------------------------------------------------------
+## Site Layouts
+--------------------------------------------------------------*/
+@import "layout/cursor";
+@import "layout/fonts";
+@import "layout/helpers";
+@import "layout/typography";
+@import "layout/wp";
+
+/* Importing the header.scss file. */
+@import "layout/header";
+@import "layout/hero";
+@import "layout/footer";
+
+/* Importing Pages */
+@import "layout/front";
+@import "layout/about";
+@import "layout/single-project";
+@import "layout/archive-project";
+@import "layout/404";
+@import "layout/pages";

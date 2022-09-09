@@ -1,0 +1,34 @@
+$font: "Kanit", sans-serif;
+$font-number: "Impact", sans-serif;
+
+$primary-color: #196244;
+$accent-color: #3a7f62;
+$white: #fff;
+$black: #1a1a1a;
+$dark: #343434;
+
+$color-1: #67625d;
+$color-2: #a6a09a;
+$color-3: #cfc7b8;
+$color-4: #e5e2de;
+$overlay: rgba(58, 127, 98, 0.95);;
+$text-color: #778389;
+
+$bg-color: #1a1a1a;
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 640px,
+	md: 990px,
+	lg: 1120px,
+	xl: 1200px,
+	xxl: 1410px,
+);
+
+$container-max-widths: (
+	sm: 640px,
+	md: 990px,
+	lg: 1120px,
+	xl: 1200px,
+	xxl: 1410px,
+);

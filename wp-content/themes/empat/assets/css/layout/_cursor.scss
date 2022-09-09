@@ -1,0 +1,32 @@
+body {
+	.inner-cursor {
+		position: fixed;
+		left: 150px;
+		width: 10px;
+		height: 10px;
+		transform: translate(-50%, -50%);
+		background-color: #fff;
+    z-index: 9999;
+		mix-blend-mode: difference;
+		border-radius: 50%;
+		pointer-events: none;
+		transition: width 0.5s, height 0.5s;
+		&.grow {
+			width: 30px;
+			height: 30px;
+			transition: width 0.5s, height 0.5s;
+		}
+	}
+	.outer-cursor {
+		position: fixed;
+		left: 150px;
+		width: 30px;
+		height: 30px;
+    z-index: 9999;
+		transform: translate(-50%, -50%);
+		border: 1px solid #fff;
+		mix-blend-mode: difference;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+}
