@@ -38,6 +38,8 @@
   },
   "dependencies": {
     "jshint": "^2.13.5",
-    "lity": "^2.4.1"
+    "lightgallery.js": "^1.4.0",
+    "lity": "^2.4.1",
+    "swiper": "^8.3.2"
   }
 }

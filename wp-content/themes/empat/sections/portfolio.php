@@ -69,7 +69,7 @@ use empat\helper\svg_icons;
 				</div>
 				<div class="content">
 					<div class="title">
-						<h3><?php the_title() ?></h3>
+						<h4><?php the_title() ?></h4>
 					</div>
 					<a href="<?php echo get_page_link($post->ID); ?>" class="corner right-top-corner">
 						<?php echo svg_icons::get('open'); ?>

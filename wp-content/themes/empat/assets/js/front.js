@@ -6,11 +6,11 @@
 
 			this.setupLayout();
 			this.setupPreloader();
-			this.setupCursor();
 			this.setupHeaderNav();
 			this.setupHeaderScroll();
 			this.setupOnePageNav();
 			this.setupCarousels();
+			this.setupCursor();
 
 		}
 
@@ -51,36 +51,6 @@
 					}
 				}, (1000));
 			}
-
-		}
-
-		/**
-		 * The above code is setting the position of the cursor to the x and y coordinates of the mouse
-		 */
-		setupCursor() {
-			let links = Array.from($(document).find('a')),
-				innerCursor = $('.inner-cursor'),
-				outerCursor = $('.outer-cursor');
-
-			$(document).mousemove(moveCursor);
-
-			function moveCursor(e) {
-				let x = e.clientX;
-				let y = e.clientY;
-
-				/* The above code is setting the position of the cursor to the x and y coordinates of the mouse. */
-				innerCursor.attr('style', `left: ${x}px; top: ${y}px`);
-				outerCursor.attr('style', `left: ${x}px; top: ${y}px`);
-			}
-
-			links.forEach((index) => {
-				index.addEventListener('mouseover', () => {
-					innerCursor.addClass('grow');
-				});
-				index.addEventListener('mouseleave', () => {
-					innerCursor.removeClass('grow');
-				});
-			});
 
 		}
 
@@ -178,21 +148,47 @@
 		 * Carousels
 		 */
 		setupCarousels() {
-			$('#single-project').slick({
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				fade: true,
-				asNavFor: '#single-project-carousel'
+			const swiper = new Swiper('.swiper', {
+				loop: true,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				}
 			});
-			$('#single-project-carousel').slick({
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				asNavFor: '#single-project',
-				arrows: false,
-				dots: true,
-				focusOnSelect: true
+
+		}
+
+
+		/**
+		 * The above code is setting the position of the cursor to the x and y coordinates of the mouse
+		 */
+		setupCursor() {
+			let links = Array.from($(document).find('a')),
+				bullets = Array.from($(document).find('span.swiper-pagination-bullet')),
+				array = links.concat(bullets),
+				innerCursor = $('.inner-cursor'),
+				outerCursor = $('.outer-cursor');
+
+			$(document).mousemove(moveCursor);
+
+			function moveCursor(e) {
+				let x = e.clientX;
+				let y = e.clientY;
+
+				/* The above code is setting the position of the cursor to the x and y coordinates of the mouse. */
+				innerCursor.attr('style', `left: ${x}px; top: ${y}px`);
+				outerCursor.attr('style', `left: ${x}px; top: ${y}px`);
+			}
+
+			array.forEach((index) => {
+				index.addEventListener('mouseover', () => {
+					innerCursor.addClass('grow');
+				});
+				index.addEventListener('mouseleave', () => {
+					innerCursor.removeClass('grow');
+				});
 			});
+
 		}
 
 	}

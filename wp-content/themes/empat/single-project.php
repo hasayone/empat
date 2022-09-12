@@ -55,55 +55,47 @@ $customer						= strip_tags(get_the_term_list(get_the_ID(), 'project_customer', 
 	<div class="intro">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-8">
+				<div class="col-sm-12 col-md-6 col-lg-8 img_block">
 
 					<?php if ($gallery) : ?>
-						<div id="single-project" class="slick-carousel">
-						<?php endif; ?>
-						<?php if ($featuredImage) : ?>
-							<?php if ($featuredImage && !$featuredImageWEBP) : ?>
-								<a data-lity href="<?php echo $featuredImage['url']; ?>">
-									<img src="<?php echo $featuredImage['url'] ?>" alt="<?php the_title() ?>" />
-								</a>
-							<?php elseif ($featuredImage && $featuredImageWEBP) : ?>
-								<a data-lity href="<?php echo $featuredImage['url']; ?>">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+							<?php endif; ?>
+							<?php if ($featuredImage) : ?>
+								<?php if ($featuredImage && !$featuredImageWEBP) : ?>
+									<a data-lity href="<?php echo $featuredImage['url']; ?>" class="<?php if ($gallery) echo 'swiper-slide' ?>">
+										<img src="<?php echo $featuredImage['url'] ?>" alt="<?php the_title() ?>" />
+									</a>
+								<?php elseif ($featuredImage && $featuredImageWEBP) : ?>
+									<a data-lity href="<?php echo $featuredImage['url']; ?>" class="<?php if ($gallery) echo 'swiper-slide' ?>">
+										<picture>
+											<source srcset="<?php echo $featuredImageWEBP['url'] ?>" type="image/webp">
+											<source srcset="<?php echo $featuredImage['url'] ?>" type="image/jpg">
+											<img src="<?php echo $featuredImageWEBP['url'] ?>" alt="<?php the_title() ?>">
+										</picture>
+									</a>
+								<?php endif; ?>
+							<?php else : ?>
+								<a data-lity href="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.jpg' ?>" class="<?php if ($gallery) echo 'swiper-slide' ?>">
 									<picture>
-										<source srcset="<?php echo $featuredImageWEBP['url'] ?>" type="image/webp">
-										<source srcset="<?php echo $featuredImage['url'] ?>" type="image/jpg">
-										<img src="<?php echo $featuredImageWEBP['url'] ?>" alt="<?php the_title() ?>">
+										<source srcset="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.webp' ?>" type="image/webp">
+										<source srcset="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.jpg' ?>" type="image/jpg">
+										<img src="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.webp' ?>" alt="<?php the_title() ?>">
 									</picture>
 								</a>
 							<?php endif; ?>
-						<?php else : ?>
-							<a data-lity href="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.jpg' ?>">
-								<picture>
-									<source srcset="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.webp' ?>" type="image/webp">
-									<source srcset="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.jpg' ?>" type="image/jpg">
-									<img src="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.webp' ?>" alt="<?php the_title() ?>">
-								</picture>
-							</a>
-						<?php endif; ?>
-						<?php
-						if ($gallery) :
-							foreach ($gallery  as $item) : ?>
-								<a data-lity href="<?php echo $item['url']; ?>">
-									<img src="<?php echo $item['url'] ?>" alt="<?php the_title() ?>">
-								</a>
-						<?php endforeach;
-						endif;  ?>
-						<?php if ($gallery) : ?>
+							<?php
+							if ($gallery) :
+								foreach ($gallery  as $item) : ?>
+									<a data-lity href="<?php echo $item['url']; ?>" class="swiper-slide">
+										<img src="<?php echo $item['url'] ?>" alt="<?php the_title() ?>">
+									</a>
+							<?php endforeach;
+							endif;  ?>
+							<?php if ($gallery) : ?>
+							</div>
+							<div class="swiper-pagination"></div>
 						</div>
-						<div id="single-project-carousel" class="slick-carousel">
-							<?php if ($featuredImage) : ?>
-								<img src="<?php echo $featuredImage['url'] ?>" alt="<?php the_title() ?>" />
-							<?php else : ?>
-								<img src="<?php echo get_template_directory_uri() . '/assets/img/EmpatProject.jpg' ?>" alt="<?php the_title() ?>">
-							<?php endif; ?>
-							<?php foreach ($gallery  as $item) : ?>
-								<img src="<?php echo $item['url'] ?>" alt="<?php the_title() ?>">
-							<?php endforeach; ?>
-						</div>
-
 					<?php endif; ?>
 				</div>
 
