@@ -6,8 +6,6 @@ const projectConfig = {
 const jsLibs = [
 	'./node_modules/slick-carousel/slick/slick.min.js',
 	'./node_modules/swiper/swiper-bundle.js',
-	'./node_modules/lightgallery.js/src/js/lightgallery.js',
-	'./node_modules/lightgallery.js/src/js/lightgallery.js',
 ];
 
 const jsWatch = [

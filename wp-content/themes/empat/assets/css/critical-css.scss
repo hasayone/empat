@@ -17,26 +17,17 @@
 	z-index: 9999;
 	transition: 0.2s;
 	svg {
+		position: absolute;
+		top: 0;
+		left: calc(50% - 75px);
 		width: 150px;
 		margin: auto;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		-webkit-justify-content: center;
-		justify-content: center;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		-webkit-align-items: center;
-		align-items: center;
 		height: 100%;
 		transition: 0.5s;
 		path {
-			fill: $white;
+			fill: #196244;
 			transition: 0.5s;
-			animation: gradient 2s ease infinite;
+			animation: fillChange 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 		}
 	}
 	&.done {
@@ -45,7 +36,7 @@
 	}
 }
 
-@keyframes gradient {
+@keyframes fillChange {
 	0% {
 		fill: $white;
 	}

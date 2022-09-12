@@ -9,8 +9,8 @@
 			this.setupHeaderNav();
 			this.setupHeaderScroll();
 			this.setupOnePageNav();
-			this.setupCarousels();
 			this.setupCursor();
+			this.setupCarousels();
 
 		}
 
@@ -143,29 +143,12 @@
 
 		}
 
-
-		/**
-		 * Carousels
-		 */
-		setupCarousels() {
-			const swiper = new Swiper('.swiper', {
-				loop: true,
-				pagination: {
-					el: '.swiper-pagination',
-					clickable: true,
-				}
-			});
-
-		}
-
-
 		/**
 		 * The above code is setting the position of the cursor to the x and y coordinates of the mouse
 		 */
 		setupCursor() {
+
 			let links = Array.from($(document).find('a')),
-				bullets = Array.from($(document).find('span.swiper-pagination-bullet')),
-				array = links.concat(bullets),
 				innerCursor = $('.inner-cursor'),
 				outerCursor = $('.outer-cursor');
 
@@ -180,13 +163,27 @@
 				outerCursor.attr('style', `left: ${x}px; top: ${y}px`);
 			}
 
-			array.forEach((index) => {
+			links.forEach((index) => {
 				index.addEventListener('mouseover', () => {
 					innerCursor.addClass('grow');
 				});
 				index.addEventListener('mouseleave', () => {
 					innerCursor.removeClass('grow');
 				});
+			});
+
+		}
+
+		/**
+		 * Carousels
+		 */
+		setupCarousels() {
+			const swiper = new Swiper('.swiper', {
+				loop: true,
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+				}
 			});
 
 		}
