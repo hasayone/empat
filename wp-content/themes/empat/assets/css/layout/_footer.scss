@@ -31,6 +31,23 @@
 					}
 				}
 			}
+			@media (max-width: 480px) {
+				svg {
+					width: 20px;
+				}
+				& + a {
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+	.copiright {
+		> span {
+			@media (max-width: 480px) {
+				display: block;
+				margin: auto;
+				width: 175px;
+			}
 		}
 	}
 }
