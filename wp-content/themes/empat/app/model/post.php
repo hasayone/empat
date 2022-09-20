@@ -2,9 +2,6 @@
 
 namespace empat\model;
 
-use empat\helper\options;
-use empat\helper\front;
-
 /**
  * Post model
  */

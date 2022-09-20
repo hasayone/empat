@@ -1,4 +1,5 @@
 <?php
+
 use empat\helper\svg_icons;
 
 $post_id 						= $data['post_id'];
@@ -15,11 +16,9 @@ $techStack = explode(", ", strip_tags(get_the_term_list($post_id, 'project_tag',
 
 /* It's checking if the post has a thumbnail and if it does it's getting the image source. */
 if (has_post_thumbnail($post_id)) $image = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'large', $post_id);
-
 ?>
 
 <article class="item col-xl-4 col-lg-4 col-md-6 col-sm-12">
-
 	<div class="item_image">
 		<?php if ($featuredImage) : ?>
 			<?php if ($featuredImage && !$featuredImageWEBP) : ?>
@@ -48,8 +47,6 @@ if (has_post_thumbnail($post_id)) $image = wp_get_attachment_image_src(get_post_
 		</a>
 		<div class="description">
 			<h5><?php echo strip_tags(get_the_term_list($post->ID, 'project_cat', '', ', ')); ?></h5>
-
-
 			<?php if ($short_description) : ?>
 				<p>
 					<?php echo $short_description; ?>

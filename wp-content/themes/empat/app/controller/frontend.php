@@ -43,9 +43,6 @@ class frontend {
 			return 30;
 		});
 
-		// Disable WP 5.5 lazy loading
-		// add_filter( 'wp_lazy_loading_enabled', '__return_false' );
-
 	}
 
 	/**
@@ -94,16 +91,6 @@ class frontend {
 	 */
 	function load_scripts() {
 
-		// $api_keys = options::get( 'api_keys');
-
-		// wp_register_script(
-		// 	'google-maps',
-		// 	sprintf( 'https://maps.googleapis.com/maps/api/js?key=%s', $api_keys['google_maps_api_key']),
-		// 	false, $this->_cache_time, true
-		// );
-
-		// wp_enqueue_script( 'google-maps');
-
 		wp_register_script(
 			'empat-libs',
 			get_template_directory_uri() . '/assets/js/libs.min.js',
@@ -146,11 +133,6 @@ class frontend {
 			'siteURL' => site_url('/')
 		]);
 
-		// add defer to all scripts
-		// add_filter( 'script_loader_tag', function( $tag, $handle ) {
-		// 	return str_replace( ' src', ' defer src', $tag );
-		// }, 10, 2);
-
 	}
 
 	/**
@@ -175,7 +157,6 @@ class frontend {
 
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'wp-block-library-theme' );
-		wp_dequeue_style( 'wc-block-style' ); // REMOVE WOOCOMMERCE BLOCK CSS
 		wp_dequeue_style( 'global-styles' ); // REMOVE THEME.JSON
 
 	}

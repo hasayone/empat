@@ -17,11 +17,6 @@ class optimization {
 
 		$this->disable_trackbacks();
 
-		//$this->disable_rest_api();
-
-		//add_filter( 'script_loader_src', [ $this, 'remove_script_version' ], 15, 1 );
-		//add_filter( 'style_loader_src', [ $this, 'remove_script_version' ], 15, 1 );
-
 	}
 
 	/**

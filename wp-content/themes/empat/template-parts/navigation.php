@@ -17,8 +17,6 @@ use empat\helper\svg_icons;
 
 				<!-- Logo -->
 				<div class="logo col-xs-10 col-sm-10 col-md-2">
-
-					<!-- Logo -->
 					<a href="<?php echo get_home_url(); ?>" class="header-logo">
 						<picture class="light">
 							<source srcset="<?php echo get_template_directory_uri() . '/assets/img/logo/logo.webp' ?>" type="image/webp">
@@ -27,7 +25,6 @@ use empat\helper\svg_icons;
 						</picture>
 						<div class="header-logo__description">Empat <span>Developer</span></div>
 					</a>
-
 				</div>
 
 				<!-- Desktope content -->

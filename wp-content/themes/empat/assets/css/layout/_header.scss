@@ -207,12 +207,8 @@
 						font-family: "Kanit", sans-serif;
 						font-style: normal;
 						font-weight: 500;
-						font-size: 4.2vw;
-						line-height: 4.2vw;
-						@include media-breakpoint-down(sm) {
-							font-size: 2.2vw;
-							line-height: 2.2vw;
-						}
+						font-size: 20px;
+						line-height: 100%;
 						color: $white;
 					}
 				}

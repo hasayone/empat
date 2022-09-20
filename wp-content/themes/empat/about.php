@@ -3,7 +3,10 @@
  * Template Name: About
  * Template Post Type: page
  * @package Empat
+ * Version: 1.0.0 -> In version 1.1.0: Use ACF as a source of content
  */
+
+/* */
 get_header();
 get_template_part('/template-parts/hero');
 
@@ -25,14 +28,12 @@ endwhile;
 
 
 <div class="about-page">
-
 	<div class="container">
 
 		<div id='about' class="row">
 			<div class="col-md-6 col-lg-4">
 				<div class="about">
 					<img src="<?php echo get_template_directory_uri() . '/assets/img/Alex.gif' ?>" alt="Orlovskyi Oleksandr">
-
 					<h4>I am <span>Oleksandr Orlovskyi</span>,</h4>
 					<h5>Full-stack WordPress Engineer and Web Developer with more than <?php echo $years; ?> years of experience.</h5>
 					<div class="about-footer">
@@ -53,7 +54,6 @@ endwhile;
 					</p>
 					<div class="block-footer"></div>
 				</div>
-
 				<div class="block">
 					<h4>Team management <span>3 years</span></h4>
 					<p>
@@ -72,7 +72,6 @@ endwhile;
 			</div>
 
 			<div id='skills' class="col-md-12 col-lg-4">
-
 				<h3>SKILLS</h3>
 				<div class="row">
 					<div class="col-sm-12 col-md-6 col-lg-12">
@@ -142,8 +141,6 @@ endwhile;
 					</div>
 				</div>
 			</div>
-
-
 
 		</div>
 		<?php get_footer();

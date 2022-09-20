@@ -14,6 +14,10 @@ section.block-portfolio {
 		margin: 0;
 		h2 {
 			color: $dark;
+			@include media-breakpoint-down(md) {
+				font-size: 48px;
+				line-height: 100%;
+			}
 		}
 		span {
 			display: block;
@@ -110,15 +114,17 @@ section.block-portfolio {
 					text-align: center;
 					width: 100%;
 					h4 {
-						font-size: 30px;
+						font-size: 24px;
 						line-height: 100%;
-						font-weight: 700;
+						font-weight: 600;
+						letter-spacing: 1px;
 						color: $white;
 						transition: all 0.7s ease-in-out;
 						margin: 0;
-						@include media-breakpoint-up(xxl) {
+						@include media-breakpoint-up(xl) {
 							font-size: 36px;
 							line-height: 100%;
+							font-weight: 700;
 						}
 					}
 				}
@@ -140,6 +146,12 @@ section.block-portfolio {
 						line-height: 120%;
 						color: $color-4;
 						font-weight: 200;
+						@include media-breakpoint-down(md) {
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							-webkit-line-clamp: 2;
+							overflow: hidden;
+						}
 					}
 					.tech-stack {
 						display: flex;
