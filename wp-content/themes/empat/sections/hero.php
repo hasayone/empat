@@ -26,8 +26,11 @@ use empat\helper\svg_icons;
 				</div>
 			</div>
 			<div class="hero-right col-md-6 col-sm-12">
-				<!-- <img alt="Alexander Orlovskiy" src="<?php echo get_template_directory_uri() . '/assets/img/front.png' ?>"> -->
-				<img alt="Alexander Orlovskiy" src="<?php echo get_template_directory_uri() . '/assets/img/img.JPG' ?>">
+				<picture>
+					<source srcset="<?php echo get_template_directory_uri() . '/assets/img/front.webp' ?>" type="image/webp">
+					<source srcset="<?php echo get_template_directory_uri() . '/assets/img/front.jpg' ?>" type="image/jpg">
+					<img src="<?php echo get_template_directory_uri() . '/assets/img/front.webp' ?>" alt="Alexander Orlovskiy" width="700" height="auto">
+				</picture>
 			</div>
 		</div>
 	</div>

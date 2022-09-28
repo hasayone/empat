@@ -10,24 +10,23 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<?php wp_head(); ?>
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KZQ74WJ');</script>
+	<!-- End Google Tag Manager -->
+	
 </head>
 
-<!----------------------------------------------------------------------
-	WELCOME TO MY CODE, DEAR FRIEND ^_^
-	I hope you find only the best, all the worst is left on StackOverflow ♥
-	-----------------------------------------------------------------------
- ╭┻━━━━━┻╮
- ┃ ╭╮ ╭╮ ┃
-╭┫▕▎▕▎┣╮
-╰┓  ┳╰╯┳ ┏╯ For You
-╭┛  ╰━━╯ ┗━━━━━╮
-┃┃       ┏━ ╭ ╰╯ ╮
-┃┃       ┃ ┏┻━━━━┻━┓
-╰┫   ╭╮  ┃ ┃ CODE ↓┃
- ┃   ┃┃  ┃ ╰
------------------------------------------------------------------------->
-
 <body <?php body_class('d-flex flex-column h-100'); ?>>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZQ74WJ"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 
 	<?php
 	/* Calling the navigation.php file in the template-parts folder. */
