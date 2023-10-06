@@ -10,13 +10,12 @@ class backend {
 	 * Constructor
 	 **/
 	function __construct() {
-
 		// load admin assets
 		add_action( 'admin_enqueue_scripts', [ $this, 'load_assets' ] );
 
 		// add custom columns to admin
-		add_filter( 'manage_post_posts_columns', [ $this, 'add_admin_list_columns' ], 10);
-		add_action( 'manage_post_posts_custom_column', [ $this, 'print_admin_list_columns' ], 10, 2);
+		add_filter( 'manage_post_posts_columns', [ $this, 'add_admin_list_columns' ], 10 );
+		add_action( 'manage_post_posts_custom_column', [ $this, 'print_admin_list_columns' ], 10, 2 );
 
 		// add editor style
 		$this->add_editor_styles();
@@ -26,36 +25,31 @@ class backend {
 		add_filter( 'manage_edit-page_columns', [ $this, 'yoast_remove_columns' ], 10, 1 );
 
 		// disable blog
-		add_action( 'init', [ $this, 'deregister_blog' ], 100);
+		add_action( 'init', [ $this, 'deregister_blog' ], 100 );
 	}
 
 	/**
 	 * Load admin assets
 	 **/
 	function load_assets() {
-
 		$current_screen = get_current_screen();
 		wp_enqueue_style( 'empat-admin', get_template_directory_uri() . '/assets/css/admin.css', false, EMPATDEV()->config['cache_time'] );
 
-		wp_enqueue_script( 'empat-admin',
-			get_template_directory_uri() . '/assets/js/admin/admin.min.js',
-			[ 'jquery' ], EMPATDEV()->config['cache_time'], true
-		);
-
+		wp_enqueue_script( 'empat-admin', get_template_directory_uri() . '/assets/js/admin/admin.min.js', [ 'jquery' ], EMPATDEV()->config['cache_time'], true );
 	}
 
 	/**
 	 * Add custom editor styles
 	 */
 	function add_editor_styles() {
-
-		add_action( 'init', function() {
+		add_action( 'init', function () {
 			add_editor_style( 'assets/css/admin-editor-style.css' );
-		});
+		} );
 
-		add_filter( 'tiny_mce_before_init', function( $mce_init ) {
+		add_filter( 'tiny_mce_before_init', function ( $mce_init ) {
 			$mce_init['cache_suffix'] = 'v=' . EMPATDEV()->config['cache_time'];
-			return $mce_init;   
+
+			return $mce_init;
 		} );
 
 		// add custom formats to the TinyMCE
@@ -81,17 +75,15 @@ class backend {
 
 		});
 		*/
-
 	}
 
 	/**
 	 * Add custom columns to the list
 	 */
 	function add_admin_list_columns( $columns ) {
-
 		// Thumb
-		$id_col = [ 'thumb' => __( 'Preview', 'empat') ];
-		$columns = array_slice( $columns, 0, 1, true ) + $id_col + array_slice( $columns, 1, NULL, true );
+		$id_col  = [ 'thumb' => __( 'Preview', 'empat' ) ];
+		$columns = array_slice( $columns, 0, 1, true ) + $id_col + array_slice( $columns, 1, null, true );
 
 		// Post type
 		// $id_col = [ 'post_type' => __( 'Post type', 'empat') ];
@@ -108,19 +100,16 @@ class backend {
 	 * Print custom columns
 	 */
 	function print_admin_list_columns( $column_name, $post_ID ) {
-
 		$view_data = [ 'post_id' => $post_ID ];
 
-		switch( $column_name ) {
-
+		switch ( $column_name ) {
 			case 'thumb':
 
-				if( has_post_thumbnail( $post_ID ) ) {
+				if ( has_post_thumbnail( $post_ID ) ) {
 					echo get_the_post_thumbnail( $post_ID, 'thumbnail' );
 				}
 
-			break;
-
+				break;
 			/*
 			case 'post_type':
 
@@ -137,22 +126,19 @@ class backend {
 
 			break;
 			*/
-
 		}
-
 	}
 
 	/**
 	 * Add a filter by featured label
 	 **/
 	function add_posts_filters() {
-
-		$screen = get_current_screen();
+		$screen    = get_current_screen();
 		$post_type = $screen->post_type;
 
-		if( $post_type == 'post' ):
+		if ( $post_type == 'post' ):
 			$type = '';
-			if( isset( $_GET['featured'] ) ) {
+			if ( isset( $_GET['featured'] ) ) {
 				$type = $_GET['featured'];
 			}
 			?>
@@ -160,9 +146,8 @@ class backend {
 				<option value=""><?php _e( 'All posts', 'empat' ); ?></option>
 				<option <?php echo $type == 'featured' ? 'selected="selected"' : ''; ?> value="featured"><?php _e( 'Featured posts only', 'empat' ); ?></option>
 			</select>
-			<?php
+		<?php
 		endif;
-
 	}
 
 	/**
@@ -171,8 +156,8 @@ class backend {
 	function filter_posts( $query ) {
 		global $pagenow;
 
-		if( $pagenow == 'edit.php' && isset( $_GET['featured'] ) && $_GET['featured'] != '') {
-			$query->query_vars['meta_key'] = 'featured_post';
+		if ( $pagenow == 'edit.php' && isset( $_GET['featured'] ) && $_GET['featured'] != '' ) {
+			$query->query_vars['meta_key']   = 'featured_post';
 			$query->query_vars['meta_value'] = 1;
 		}
 	}
@@ -181,17 +166,18 @@ class backend {
 	 * Remove YOAST columns from table
 	 */
 	function yoast_remove_columns( $columns ) {
-		unset( $columns['wpseo-score']);
-		unset( $columns['wpseo-score-readability']);
-		unset( $columns['wpseo-title']);
-		unset( $columns['wpseo-metadesc']);
-		unset( $columns['wpseo-focuskw']);
-		unset( $columns['wpseo-links']);
-		unset( $columns['wpseo-linked']);
+		unset( $columns['wpseo-score'] );
+		unset( $columns['wpseo-score-readability'] );
+		unset( $columns['wpseo-title'] );
+		unset( $columns['wpseo-metadesc'] );
+		unset( $columns['wpseo-focuskw'] );
+		unset( $columns['wpseo-links'] );
+		unset( $columns['wpseo-linked'] );
+
 		return $columns;
 	}
 
-		/**
+	/**
 	 * Disable blog
 	 */
 	function deregister_blog() {
@@ -222,11 +208,9 @@ class backend {
 
 			// remove supports.
 			$wp_post_types['post']->supports = [];
-
 		}
-
 	}
-	
+
 }
 
 ?>

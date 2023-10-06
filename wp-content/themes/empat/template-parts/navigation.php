@@ -1,7 +1,4 @@
-<?php
-
-use empat\helper\svg_icons;
-?>
+<?php use empat\helper\svg_icons; ?>
 
 <div id="head-holder">
 	<?php
@@ -17,7 +14,7 @@ use empat\helper\svg_icons;
 
 				<!-- Logo -->
 				<div class="logo col-xs-10 col-sm-10 col-md-2">
-					<a href="<?php echo get_home_url(); ?>" class="header-logo">
+					<a href="<?= get_home_url(); ?>" class="header-logo">
 						<picture class="light">
 							<source srcset="<?php echo get_template_directory_uri() . '/assets/img/logo/logo.webp' ?>" type="image/webp">
 							<source srcset="<?php echo get_template_directory_uri() . '/assets/img/logo/logo.png' ?>" type="image/png">
@@ -31,12 +28,12 @@ use empat\helper\svg_icons;
 				<div class="header-desktope-content col-md-10">
 					<nav class="nav col-xs-2 col-sm-2 col-md-10 d-xs-none d-md-flex">
 						<?php
-						wp_nav_menu([
-							'menu' => 'header_menu',
+						wp_nav_menu( [
+							'menu'           => 'header_menu',
 							'theme_location' => 'header_menu',
-							'menu_class' => 'header_menu',
-							'container' => false
-						]);
+							'menu_class'     => 'header_menu',
+							'container'      => false
+						] );
 						?>
 					</nav>
 				</div>
@@ -44,7 +41,7 @@ use empat\helper\svg_icons;
 				<!-- Mobile Menu -->
 				<div class="hamburger-mobile col-xs-2 col-sm-2">
 					<a id="hamburger-mobile-toggler" onclick="return false">
-						<?php echo svg_icons::get('menu'); ?>
+						<?= svg_icons::get( 'menu' ); ?>
 					</a>
 				</div>
 
@@ -54,16 +51,16 @@ use empat\helper\svg_icons;
 			<div class="mobile-menu__overlay"></div>
 			<div class="mobile-menu__content">
 				<a id="header-mobile-nav-close" onclick="return false">
-					<?php echo svg_icons::get('close'); ?>
+					<?= svg_icons::get( 'close' ); ?>
 				</a>
 				<nav class="nav">
 					<?php
-					wp_nav_menu([
-						'menu' => 'header_menu',
+					wp_nav_menu( [
+						'menu'           => 'header_menu',
 						'theme_location' => 'header_menu',
-						'menu_class' => 'header_menu',
-						'container' => false
-					]);
+						'menu_class'     => 'header_menu',
+						'container'      => false
+					] );
 					?>
 				</nav>
 			</div>

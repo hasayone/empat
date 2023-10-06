@@ -11,12 +11,9 @@ class database {
 		$this->wpdb = $wpdb;
 
 		$this->tables = [
-			'options'		=> $this->wpdb->prefix . 'options',
-			'posts'			=> $this->wpdb->prefix . 'posts',
-			'users'			=> $this->wpdb->prefix . 'users',
+			'options' => $this->wpdb->prefix . 'options',
+			'posts'   => $this->wpdb->prefix . 'posts',
+			'users'   => $this->wpdb->prefix . 'users',
 		];
-
 	}
 }
-
-?>
