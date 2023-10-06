@@ -48,3 +48,5 @@ win_install.sh
 win_install_demo_data.sh
 mac_install.sh
 mac_install_demo_data.sh
+/local-xdebuginfo.php
+/wp-content/plugins/
