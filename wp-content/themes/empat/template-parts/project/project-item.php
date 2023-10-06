@@ -38,7 +38,7 @@ if ( has_post_thumbnail( $post_id ) ) {
 			</picture>
 		<?php endif; ?>
 	</div>
-	<a href="<?= get_page_link( $post_id ); ?>" class="content">
+	<a href="<?= get_permalink( $post_id ) ?>" class="content">
 		<div class="title">
 			<h4><?php the_title() ?></h4>
 		</div>
