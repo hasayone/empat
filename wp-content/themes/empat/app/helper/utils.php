@@ -6,12 +6,12 @@ class utils {
 	/**
 	 * Autoload PHP files in directory
 	 *
-	 * @param $dir
-	 * @param int $max_scan_depth
-	 * @param string $load_file
-	 * @param int $current_depth
+	 * @param          $dir
+	 * @param  int     $max_scan_depth
+	 * @param  string  $load_file
+	 * @param  int     $current_depth
 	 */
-	public static function autoload_dir( $dir, $max_scan_depth = 0, $load_file = '', $current_depth = 0 ) {
+	public static function autoload_dir( $dir, $max_scan_depth = 0, $load_file = '', $current_depth = 0 ): void {
 		if ( $current_depth > $max_scan_depth ) {
 			return;
 		}
@@ -39,14 +39,10 @@ class utils {
 	/**
 	 * Verify AJAX nonce
 	 */
-	public static function verify_ajax_request() {
-
+	public static function verify_ajax_request(): void {
 		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'empat_ajax_nonce' ) ) {
 			die( 'AJAX request was not validated' );
 		}
-
 	}
 
 }
-
-?>

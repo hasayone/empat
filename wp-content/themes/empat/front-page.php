@@ -6,20 +6,20 @@
  */
 get_header(); ?>
 
-<div class="front-page">
+	<div class="front-page">
 
-	<?php
-	// Hero Module 
-	get_template_part('sections/hero'); ?>
+		<?php
+		// Hero Module
+		get_template_part( 'sections/hero' ); ?>
 
-	<?php
-	// Skills Module
-	get_template_part('sections/skills'); ?>
+		<?php
+		// Skills Module
+		get_template_part( 'sections/skills' ); ?>
 
-	<?php
-	// Skills Module
-	get_template_part('sections/portfolio'); ?>
+		<?php
+		// Skills Module
+		get_template_part( 'sections/portfolio' ); ?>
 
-</div>
+	</div>
 
 <?php get_footer();

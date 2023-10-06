@@ -10,20 +10,17 @@ class optimization {
 	 * Constructor
 	 **/
 	function __construct() {
-
 		$this->head_cleanup();
 
 		$this->assets_cleanup();
 
 		$this->disable_trackbacks();
-
 	}
 
 	/**
 	 * Clean head
 	 */
 	function head_cleanup() {
-
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 
 		add_action( 'wp_head', 'ob_start', 1, 0 );
@@ -40,10 +37,10 @@ class optimization {
 		remove_action( 'wp_head', 'wp_generator' );
 
 		// remove jquery migrate for optimization reasons
-		add_filter( 'wp_default_scripts', function( $scripts ) {
+		add_filter( 'wp_default_scripts', function ( $scripts ) {
 			if ( ! is_admin() ) {
 				$scripts->remove( 'jquery' );
-				$scripts->add( 'jquery', false, ['jquery-core'], '1.10.2' );
+				$scripts->add( 'jquery', false, [ 'jquery-core' ], '1.10.2' );
 			}
 		} );
 
@@ -69,57 +66,47 @@ class optimization {
 		add_filter( 'post_thumbnail_html', [ $this, 'remove_self_closing_tags' ] ); // <img />
 		add_filter( 'get_bloginfo_rss', [ $this, 'remove_default_description' ] );
 
-		add_action( 'init', function() {
+		add_action( 'init', function () {
 			if ( class_exists( 'Vc_Manager' ) ) {
-				remove_action( 'wp_head', [ visual_composer(), 'addMetaData']);
+				remove_action( 'wp_head', [ visual_composer(), 'addMetaData' ] );
 			}
-		}, 100);
+		}, 100 );
 
-		if( defined( 'WPSEO_VERSION')) {
-			add_action( 'wp_head',function() { 
-				ob_start(function($o) {
-					return preg_replace( '/^\n?<!--.*?[Y]oast.*?-->\n?$/mi','',$o);
-				});
-			}, ~PHP_INT_MAX);
+		if ( defined( 'WPSEO_VERSION' ) ) {
+			add_action( 'wp_head', function () {
+				ob_start( function ( $o ) {
+					return preg_replace( '/^\n?<!--.*?[Y]oast.*?-->\n?$/mi', '', $o );
+				} );
+			}, ~PHP_INT_MAX );
 		}
-
 	}
 
 	/**
 	 * Remove unused assets
 	 */
 	function assets_cleanup() {
-
-		add_action( 'wp_enqueue_scripts', function() {
+		add_action( 'wp_enqueue_scripts', function () {
 			wp_dequeue_style( 'wp-block-library' );
 			wp_dequeue_style( 'wp-block-library-theme' );
 		}, 100 );
-
 	}
 
 	/**
 	 * Disable trackbacks
 	 */
 	function disable_trackbacks() {
-
 		add_filter( 'xmlrpc_methods', [ $this, 'filter_xmlrpc_method' ], 10, 1 );
 		add_filter( 'wp_headers', [ $this, 'filter_headers' ], 10, 1 );
 		add_filter( 'rewrite_rules_array', [ $this, 'filter_rewrites' ] );
 		add_filter( 'bloginfo_url', [ $this, 'kill_pingback_url' ], 10, 2 );
 		add_action( 'xmlrpc_call', [ $this, 'kill_xmlrpc' ] );
-
 	}
 
-/**
+	/**
 	 * Clean up output of stylesheet <link> tags
 	 */
 	public function clean_style_tag( $input ) {
-
-		preg_match_all(
-			"!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!",
-			$input,
-			$matches
-		);
+		preg_match_all( "!<link rel='stylesheet'\s?(id='[^']+')?\s+href='(.*)' type='text/css' media='(.*)' />!", $input, $matches );
 
 		if ( empty( $matches[2] ) ) {
 			return $input;
@@ -127,8 +114,8 @@ class optimization {
 
 		// Only display media if it is meaningful
 		$media = $matches[3][0] !== '' && $matches[3][0] !== 'all' ? ' media="' . $matches[3][0] . '"' : '';
-		return '<link rel="stylesheet" href="' . $matches[2][0] . '"' . $media . '>' . "\n";
 
+		return '<link rel="stylesheet" href="' . $matches[2][0] . '"' . $media . '>' . "\n";
 	}
 
 	/**
@@ -143,6 +130,7 @@ class optimization {
 	 */
 	public function remove_default_description( $bloginfo ) {
 		$default_tagline = 'Just another WordPress site';
+
 		return ( $bloginfo === $default_tagline ) ? '' : $bloginfo;
 	}
 
@@ -151,6 +139,7 @@ class optimization {
 	 */
 	public function filter_xmlrpc_method( $methods ) {
 		unset( $methods['pingback.ping'] );
+
 		return $methods;
 	}
 
@@ -161,6 +150,7 @@ class optimization {
 		if ( isset( $headers['X-Pingback'] ) ) {
 			unset( $headers['X-Pingback'] );
 		}
+
 		return $headers;
 	}
 
@@ -173,6 +163,7 @@ class optimization {
 				unset( $rules[ $rule ] );
 			}
 		}
+
 		return $rules;
 	}
 
@@ -183,6 +174,7 @@ class optimization {
 		if ( $show === 'pingback_url' ) {
 			$output = '';
 		}
+
 		return $output;
 	}
 
@@ -195,39 +187,4 @@ class optimization {
 		}
 	}
 
-	/**
-	 * Disable REST API
-	 */
-	function disable_rest_api() {
-		remove_action( 'template_redirect', 'rest_output_link_header', 11);
-		remove_action( 'wp_head', 'rest_output_link_wp_head', 10);
-		remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd');
-
-		add_filter( 'rest_authentication_errors', function( $access ) {
-
-			// CF7 uses REST APIm skip
-			if( strpos( $_SERVER['REQUEST_URI'], 'contact-form-7') !== false) {
-        return $access;
-    	}
-
-			// disable REST API for not-logged users
-			if( !is_user_logged_in() ) {
-				$message = apply_filters( 'disable_wp_rest_api_error', __('REST API restricted to authenticated users.', 'shop') );
-				return new \WP_Error( 'rest_login_required', $message, ['status' => rest_authorization_required_code()] );
-			}
-
-			return $access;
-
-		});
-	}
-
-	/**
-	 * Remove version query string from all styles and scripts
-	 */
-	public function remove_script_version( $src ) {
-		return $src ? esc_url( remove_query_arg( 'ver', $src ) ) : false;
-	}
-
 }
-
-?>

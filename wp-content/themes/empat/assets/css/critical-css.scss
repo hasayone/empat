@@ -16,6 +16,7 @@
 	background-color: $bg-color;
 	z-index: 9999;
 	transition: 0.2s;
+
 	svg {
 		position: absolute;
 		top: 0;
@@ -24,12 +25,14 @@
 		margin: auto;
 		height: 100%;
 		transition: 0.5s;
+
 		path {
 			fill: #196244;
 			transition: 0.5s;
 			animation: fillChange 1s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 		}
 	}
+
 	&.done {
 		height: 0;
 		transition: 0.5s;
